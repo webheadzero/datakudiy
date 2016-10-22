@@ -90,4 +90,12 @@
 	border-bottom: 4px solid rgba(0,0,0,0.1);
 	display: block;
     overflow: hidden;
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+}
+.page-preloader{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
 }
