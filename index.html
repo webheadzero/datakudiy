@@ -165,6 +165,7 @@
       </div>  
     </div>
     <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/framework7.min.js"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/my-app.js"></script>
@@ -174,7 +175,7 @@
     <script type="text/javascript">
         document.addEventListener("deviceready",function(){
             document.addEventListener("backbutton", onBackKeyDown, false);
-            
+
             $$('.link,.item-link,.icon-menu').on('click',function(){
                 nativeclick.trigger();
             });
