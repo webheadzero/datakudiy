@@ -187,7 +187,23 @@
         function onBackKeyDown(e){
             e.preventDefault();
             e.stopPropagation();
-            mainView.router.back();
+            if(mainView.activePage =='home'){
+                if(new Date().getTime() - lastTimeBackPress < durationToExit){
+                    navigator.app.exitApp();
+                }else{
+                    window.plugins.toast.showWithOptions(
+                        {
+                          message: "Tekan sekali lagi untuk keluar.",
+                          duration: "short",
+                          position: "bottom",
+                          addPixelsY: -40
+                        }
+                      );
+                    lastTimeBackPress=new Date().getTime();
+                }
+            } else {
+                mainView.router.back();
+            }
             /*if(new Date().getTime() - lastTimeBackPress < durationToExit){
                 navigator.app.exitApp();
             }else{
