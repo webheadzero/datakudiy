@@ -187,7 +187,8 @@
         function onBackKeyDown(e){
             e.preventDefault();
             e.stopPropagation();
-            if(new Date().getTime() - lastTimeBackPress < durationToExit){
+            mainView.router.back();
+            /*if(new Date().getTime() - lastTimeBackPress < durationToExit){
                 navigator.app.exitApp();
             }else{
                 window.plugins.toast.showWithOptions(
@@ -199,7 +200,7 @@
                     }
                   );
                 lastTimeBackPress=new Date().getTime();
-            }
+            }*/
         };
     </script>
   </body>
