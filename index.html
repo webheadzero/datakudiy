@@ -183,12 +183,15 @@
     <script type="text/javascript" src="js/Toast.js"></script>
     <script type="text/javascript">
         document.addEventListener("deviceready",function(){
+            if (cordova.platformId == 'android') {
+                StatusBar.backgroundColorByHexString("#2196f3");
+            }
             document.addEventListener("backbutton", onBackKeyDown, false);
-
-            $$('a,button,.link,.item-link,.floating-button').on('click',function(){
-                nativeclick.trigger();
-            });
         },false);
+
+        $$('a,button').on('click',function(){
+            nativeclick.trigger();
+        });
 
         var lastTimeBackPress=0;
         var durationToExit=2000;
