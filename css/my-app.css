@@ -29,6 +29,49 @@
 	margin: 0;
 	text-transform: uppercase;
 }
+.data-search{
+	background: #fff;
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	right: 15px;
+	border-radius: 2px;
+	box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
+	overflow: hidden
+}
+.data-search *,
+.data-search *:after,
+.data-search *::before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin:0px;
+	padding:0px;
+}
+.data-search input{
+	width: 100%;
+	height: 40px;
+	float: left;
+	background: none;
+	border: none;
+	outline: none;
+	padding: 0 40px 0 15px;
+}
+.data-search button{
+	width: 40px;
+	display: block;
+	float: left;
+	height: 40px;
+	background: none;
+	border: none;
+	outline: none;
+	font-size: 24px;
+	color: #aaa;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
 .card-header-pic{
 	height: 120px;
 	background-size: cover;

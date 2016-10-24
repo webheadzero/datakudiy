@@ -21,6 +21,13 @@ var base_url = 'http://produksi.jmc.co.id/2016/dataku_diy';
 var mainView = myApp.addView('.view-main', {
 });
 
+$$('.data-search.ajax-submit').on('submitted', function (e) {
+    var keyword = $$('.search-value').val();
+    mainView.router.load({
+        url : 'search.html?keyword='+keyword+'',
+    });
+});
+
 function AjaxPage(url,id_page){
     $$.ajax({
         url: url,
@@ -43,6 +50,39 @@ function AjaxPage(url,id_page){
         }
     });
 }
+
+myApp.onPageInit('search', function (page) {
+        url = base_url + '/api/home/search/';
+        keyword = page.query.keyword;
+
+        if(keyword != ''){
+            $$('.search-info').html('<div class="card"><div class="card-content"><div class="card-content-inner">Menampilkan Data Dengan Kata Kunci : <strong>'+keyword+'</strong></div></div></div>');
+            $$.ajax({
+                url: url,
+                type: "post",
+                data: {'api_key' : '1f69c3d19d24780583a95be95d61ad29b417e6dd'},
+                async: true,
+                dataType: "json",
+                success: function(data) {
+                    var context = data;
+
+                    var template = $$('#search_template').html();
+                    var compiledTemplate = Template7.compile(template);
+
+                    var html = compiledTemplate(context);
+                    
+                    $$('#search').html(html);
+
+                    console.log(context);
+                },
+                error: function (textStatus, errorThrown) {
+                    
+                }
+            });
+        } else {
+            $$('#search').html('<div class="card"><div class="card-content"><div class="card-content-inner">Anda Belum Memasukkan Kata Kunci</div></div></div>');
+        }
+});
 
 myApp.onPageInit('publikasi', function (page) {
     url = base_url + '/api/publikasi/index';

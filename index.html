@@ -117,7 +117,10 @@
                   </div>    
                   <div class="page-content page-home" data-page="home">
                     <div class="page-home-hero">
-
+                      <form class="data-search ajax-submit" action="search.html" method="GET">
+                        <input class="search-value" type="text" name="search-value" placeholder="Search..">
+                        <button type="submit"><i class="ion-android-search"></i></button>
+                      </form>
                       <div class="caption">
                         <h2>Aplikasi Dataku</h2>
                         <h5>Bappeda Daerah Istimewa Yogyakarta</h5>
@@ -175,14 +178,14 @@
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/my-app.js"></script>
     
-    <!-- Cordova Required -->
+    <!-- Cordova Required 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/Toast.js"></script>
     <script type="text/javascript">
         document.addEventListener("deviceready",function(){
             document.addEventListener("backbutton", onBackKeyDown, false);
 
-            $$('a').on('click',function(){
+            $$('a,button').on('click',function(){
                 nativeclick.trigger();
             });
         },false);
@@ -239,6 +242,6 @@
                 lastTimeBackPress=new Date().getTime();
             }*/
         }
-    </script>
+    </script>-->
   </body>
 </html>
