@@ -175,7 +175,7 @@
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/my-app.js"></script>
     
-    <!-- Cordova Required 
+    <!-- Cordova Required -->
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/Toast.js"></script>
     <script type="text/javascript">
@@ -193,6 +193,7 @@
         function onBackKeyDown(e){
             e.preventDefault();
             e.stopPropagation();
+            /*
             if(mainView.activePage =='home'){
                 if(new Date().getTime() - lastTimeBackPress < durationToExit){
                     navigator.app.exitApp();
@@ -210,8 +211,10 @@
             } else {
                 mainView.router.back();
             }
-            /*if(new Date().getTime() - lastTimeBackPress < durationToExit){
+            */
+            if(new Date().getTime() - lastTimeBackPress < durationToExit){
                 navigator.app.exitApp();
+                mainView.router.back();
             }else{
                 window.plugins.toast.showWithOptions(
                     {
@@ -222,8 +225,8 @@
                     }
                   );
                 lastTimeBackPress=new Date().getTime();
-            }*/
+            }
         };
-    </script>-->
+    </script>
   </body>
 </html>
