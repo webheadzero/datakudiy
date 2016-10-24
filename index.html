@@ -174,6 +174,15 @@
     <script type="text/javascript" src="js/framework7.min.js"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/my-app.js"></script>
+    <script type="text/javascript">
+      $$('body').on('click', function(event) {
+        if(mainView.activePage.name!= null){
+          console.log('ok');
+        } else {
+          console.log('not ok');
+        }
+      });
+    </script>
     
     <!-- Cordova Required -->
     <script type="text/javascript" src="cordova.js"></script>
@@ -193,44 +202,38 @@
         function onBackKeyDown(e){
             e.preventDefault();
             e.stopPropagation();
-            myApp.onPageInit('*', function (page) {
+            if(mainView.activePage.name!= null){              
               mainView.router.back();
-            });
-
-            myApp.onPageInit('home', function (page) {
-              if(new Date().getTime() - lastTimeBackPress < durationToExit){
-                    navigator.app.exitApp();
-                }else{
-                    window.plugins.toast.showWithOptions(
-                        {
-                          message: "Tekan sekali lagi untuk keluar.",
-                          duration: "short",
-                          position: "bottom",
-                          addPixelsY: -40
-                        }
-                      );
-                    lastTimeBackPress=new Date().getTime();
-                }
-            }).trigger();
-            
-            /*if(mainView.activePage =='home'){
-                if(new Date().getTime() - lastTimeBackPress < durationToExit){
-                    navigator.app.exitApp();
-                }else{
-                    window.plugins.toast.showWithOptions(
-                        {
-                          message: "Tekan sekali lagi untuk keluar.",
-                          duration: "short",
-                          position: "bottom",
-                          addPixelsY: -40
-                        }
-                      );
-                    lastTimeBackPress=new Date().getTime();
-                }
             } else {
-                mainView.router.back();
+              if(new Date().getTime() - lastTimeBackPress < durationToExit){
+                  navigator.app.exitApp();
+              } else{
+                  window.plugins.toast.showWithOptions(
+                      {
+                        message: "Tekan sekali lagi untuk keluar.",
+                        duration: "short",
+                        position: "bottom",
+                        addPixelsY: -40
+                      }
+                    );
+                  lastTimeBackPress=new Date().getTime();
+              }
             }
-            */
+
+            /*if(new Date().getTime() - lastTimeBackPress < durationToExit){
+                navigator.app.exitApp();
+            } else{
+                window.plugins.toast.showWithOptions(
+                    {
+                      message: "Tekan sekali lagi untuk keluar.",
+                      duration: "short",
+                      position: "bottom",
+                      addPixelsY: -40
+                    }
+                  );
+                lastTimeBackPress=new Date().getTime();
+            }*/
+            
             /*if(new Date().getTime() - lastTimeBackPress < durationToExit){
                 navigator.app.exitApp();
             }else{
@@ -244,7 +247,7 @@
                   );
                 lastTimeBackPress=new Date().getTime();
             }*/
-        };
+        }
     </script>
   </body>
 </html>
