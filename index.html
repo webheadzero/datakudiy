@@ -178,14 +178,14 @@
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/my-app.js"></script>
     
-    <!-- Cordova Required 
+    <!-- Cordova Required -->
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/Toast.js"></script>
     <script type="text/javascript">
         document.addEventListener("deviceready",function(){
             document.addEventListener("backbutton", onBackKeyDown, false);
 
-            $$('a,button').on('click',function(){
+            $$('a,button,.link,.item-link,.floating-button').on('click',function(){
                 nativeclick.trigger();
             });
         },false);
@@ -242,6 +242,6 @@
                 lastTimeBackPress=new Date().getTime();
             }*/
         }
-    </script>-->
+    </script>
   </body>
 </html>
