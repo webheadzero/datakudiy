@@ -182,7 +182,7 @@
         document.addEventListener("deviceready",function(){
             document.addEventListener("backbutton", onBackKeyDown, false);
 
-            $$('.link,.item-link,.icon-menu').on('click',function(){
+            $$('a').on('click',function(){
                 nativeclick.trigger();
             });
         },false);
@@ -193,8 +193,27 @@
         function onBackKeyDown(e){
             e.preventDefault();
             e.stopPropagation();
-            /*
-            if(mainView.activePage =='home'){
+            myApp.onPageInit('*', function (page) {
+              mainView.router.back();
+            });
+
+            myApp.onPageInit('home', function (page) {
+              if(new Date().getTime() - lastTimeBackPress < durationToExit){
+                    navigator.app.exitApp();
+                }else{
+                    window.plugins.toast.showWithOptions(
+                        {
+                          message: "Tekan sekali lagi untuk keluar.",
+                          duration: "short",
+                          position: "bottom",
+                          addPixelsY: -40
+                        }
+                      );
+                    lastTimeBackPress=new Date().getTime();
+                }
+            }).trigger();
+            
+            /*if(mainView.activePage =='home'){
                 if(new Date().getTime() - lastTimeBackPress < durationToExit){
                     navigator.app.exitApp();
                 }else{
@@ -212,9 +231,8 @@
                 mainView.router.back();
             }
             */
-            if(new Date().getTime() - lastTimeBackPress < durationToExit){
+            /*if(new Date().getTime() - lastTimeBackPress < durationToExit){
                 navigator.app.exitApp();
-                mainView.router.back();
             }else{
                 window.plugins.toast.showWithOptions(
                     {
@@ -225,7 +243,7 @@
                     }
                   );
                 lastTimeBackPress=new Date().getTime();
-            }
+            }*/
         };
     </script>
   </body>
