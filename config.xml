@@ -8,13 +8,17 @@
         JMC Mobile Apps Team
     </author>
     <content src="index.html" />
+    <preference name="DisallowOverscroll" value="true"/>
+    <preference name="orientation" value="portrait" />
+    <preference name="StatusBarBackgroundColor" value="#d23125" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-nativeclicksound" spec="https://github.com/MatiMenich/cordova-plugin-nativeClickSound.git" source="git"/>
     <plugin name="cordova-plugin-x-toast" spec="https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git" source="git"/>
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2"/>
     <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0"/>
-    <preference name="orientation" value="portrait" />
-    <preference name="StatusBarBackgroundColor" value="#2196f3" />
+    <plugin name="cordova-plugin-file" source="npm" spec="~4.1.1"/>
+    <plugin name="cordova-plugin-file-transfer" source="npm" spec="~1.5.0"/>
+    <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1"/>
     <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -29,5 +33,9 @@
         <icon platform="android" qualifier="xhdpi" src="www/res/icons/android/icon-96-xhdpi.png"/>
         <icon platform="android" qualifier="xxhdpi" src="www/res/icons/android/icon-144-xxhdpi.png"/>
         <icon platform="android" qualifier="xxxhdpi" src="www/res/icons/android/icon-192-xxxhdpi.png"/>
+        <splash src="www/res/screen/screen-ldpi-portrait.png" density="port-ldpi"/>
+        <splash src="www/res/screen/screen-mdpi-portrait.png" density="port-mdpi"/>
+        <splash src="www/res/screen/screen-hdpi-portrait.png" density="port-hdpi"/>
+        <splash src="www/res/screen/screen-xhdpi-portrait.png" density="port-xhdpi"/>
     </platform>
 </widget>

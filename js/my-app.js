@@ -15,18 +15,23 @@ var mySwiper = myApp.swiper('.swiper-container', {
 // Export selectors engine
 var $$ = Dom7;
 
+$$(document).on('click', '.btn-download-file', function (e) {
+    var url = this.getAttribute('data-file');
+    console.log(url);
+});
 var base_url = 'http://produksi.jmc.co.id/2016/dataku_diy';
 
 // Add view
 var mainView = myApp.addView('.view-main', {
 });
 
-$$('.data-search.ajax-submit').on('submitted', function (e) {
+$$(document).on('submit','.data-search.ajax-submit', function (e) {
     var keyword = $$('.search-value').val();
     mainView.router.load({
         url : 'search.html?keyword='+keyword+'',
     });
 });
+
 
 function AjaxPage(url,id_page){
     $$.ajax({
@@ -52,36 +57,73 @@ function AjaxPage(url,id_page){
 }
 
 myApp.onPageInit('search', function (page) {
-        url = base_url + '/api/home/search/';
-        keyword = page.query.keyword;
+    url = base_url + '/api/home/search/';
+    keyword = page.query.keyword;
+    key = keyword.replace(/\s+/g,"_");
 
-        if(keyword != ''){
-            $$('.search-info').html('<div class="card"><div class="card-content"><div class="card-content-inner">Menampilkan Data Dengan Kata Kunci : <strong>'+keyword+'</strong></div></div></div>');
-            $$.ajax({
-                url: url,
-                type: "post",
-                data: {'api_key' : '1f69c3d19d24780583a95be95d61ad29b417e6dd'},
-                async: true,
-                dataType: "json",
-                success: function(data) {
-                    var context = data;
+    if(keyword != ''){
+        search(url+key,keyword,0);
+    } else {
+        $$('#search').html('<div class="card"><div class="card-content"><div class="card-content-inner">Anda Belum Memasukkan Kata Kunci</div></div></div>');
+    }
 
-                    var template = $$('#search_template').html();
-                    var compiledTemplate = Template7.compile(template);
+    $$(document).on('click', '.search-paging a.page-next', function (e) {
+        var url = this.getAttribute('data-url');
+        var keyword = this.getAttribute('data-keyword');
+        var offset = this.getAttribute('data-offset');
+        offset = parseInt(offset)+10;
 
-                    var html = compiledTemplate(context);
-                    
-                    $$('#search').html(html);
+        search(url,keyword,offset);
+    });
+    $$(document).on('click', '.search-paging a.page-prev', function (e) {
+        var url = this.getAttribute('data-url');
+        var keyword = this.getAttribute('data-keyword');
+        var offset = this.getAttribute('data-offset');
+        offset = parseInt(offset)-10;
 
-                    console.log(context);
-                },
-                error: function (textStatus, errorThrown) {
-                    
+        search(url,keyword,offset);
+    });
+    function search(url,keyword,offset){
+        $$('#search').html('<span class="preloader page-preloader"></span>');
+        $$('.search-info').html('<div class="card bg-blue color-white" style="margin:-8px -8px 8px;padding:8px"><div class="card-content"><div class="card-content-inner">Menampilkan Data Dengan Kata Kunci : <strong>'+keyword+'</strong></div></div></div>');
+        $$.ajax({
+            url: url+'/'+offset,
+            type: "post",
+            data: {'api_key' : '1f69c3d19d24780583a95be95d61ad29b417e6dd'},
+            async: true,
+            dataType: "json",
+            success: function(data) {
+                var context = data;
+
+                var template = $$('#search_template').html();
+                var compiledTemplate = Template7.compile(template);
+
+                var html = compiledTemplate(context);
+
+                var total = context.total_rows;
+                
+                $$('#search').html(html);
+
+                if(total > 10){
+                    $$('.search-paging').html('<div class="button button-fill button-raised color-white" style="margin:8px;color:#aaa;"><a href="#" class="page-prev" data-keyword="'+keyword+'" data-url="'+url+'" data-offset="'+offset+'"><i class="ion-ios-arrow-left"></i> Sebelumnya</a> <a class="page-next" href="#" data-keyword="'+keyword+'" data-url="'+url+'" data-offset="'+offset+'">Berikutnya <i class="ion-ios-arrow-right"></i></a></div>');
+                    $$('.search-paging .page-next').show();
+
+                    if(offset > 9){
+                        $$('.search-paging .page-prev').show();
+                    } 
+                    if((parseInt(offset)+10) > total){
+                        $$('.search-paging .page-next').hide();
+                    }
                 }
-            });
-        } else {
-            $$('#search').html('<div class="card"><div class="card-content"><div class="card-content-inner">Anda Belum Memasukkan Kata Kunci</div></div></div>');
-        }
+
+                console.log(total+','+offset);
+                console.log(context);
+            },
+            error: function (textStatus, errorThrown) {
+                
+            }
+        });
+    }
 });
 
 myApp.onPageInit('publikasi', function (page) {

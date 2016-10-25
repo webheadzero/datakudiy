@@ -176,3 +176,15 @@
 	height: 150px;
 	background: #eee;
 }
+.text-right{
+	text-align: right;
+}
+.search-paging a{
+	display: block;
+	width: 50%;
+	float: left;
+	display: none;
+}
+.search-paging a.page-next{
+	float: right;
+}

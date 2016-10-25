@@ -10,11 +10,12 @@
         <div class="center">Data Dasar</div>
       </div>
     </div>
-    <div class="page-content infinite-scroll">
+    <div class="page-content">
         <div class="search-info"></div>
         <div id="search">
             <span class="preloader page-preloader"></span>
         </div>
+        <div class="search-paging"></div>
         <script id="search_template" type="text/template7">
             {{#each result}}
             <div class="card">
@@ -23,10 +24,36 @@
                 <div class="card-header"><strong>{{nama_data}}</strong></div>
                 <div class="card-content">
                     <div class="card-content-inner">
-                        <div>Data Daerah : <strong>{{nama_input}}</strong></div>
-                        <div>Bidang Urusan : <strong>{{nama_kelompok}}</strong></div>
-                        <div>Elemen : <strong>{{nama_jenis}}</strong></div>
-                        <div>Sumber Data : <strong>{{nama_sumber}}</strong></div>
+                        <div class="row">
+                            <div class="col-40">Data Daerah :</div><div class="col-60"><strong>{{nama_input}}</strong></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-40">Bidang Urusan :</div><div class="col-60"><strong>{{nama_kelompok}}</strong></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-40">Elemen :</div><div class="col-60"><strong>{{nama_jenis}}</strong></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-40">Sumber :</div><div class="col-60"><strong>{{nama_sumber}}</strong></div>
+                        </div>
+                        <div style="border-bottom:1px solid #eee;margin:10px 0"></div>
+                        <div style="background:#eee;padding:15px;">
+                            <div class="row">
+                                <div class="col-40">2012</div><div class="col-60 text-right"><strong>{{2012}}</strong></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-40">2013</div><div class="col-60 text-right"><strong>{{2013}}</strong></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-40">2014</div><div class="col-60 text-right"><strong>{{2014}}</strong></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-40">2015</div><div class="col-60 text-right"><strong>{{2015}}</strong></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-40">2016</div><div class="col-60 text-right"><strong>{{2016}}</strong></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

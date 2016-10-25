@@ -13,7 +13,7 @@
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/my-app.css">
   </head>
-  <body class="theme-blue">
+  <body class="theme-red">
     <!-- First, we need to add Panel's overlay that will overlays app while panel is opened -->
     <div class="panel-overlay"></div>
  
@@ -181,17 +181,18 @@
     <!-- Cordova Required -->
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/Toast.js"></script>
+    <script type="text/javascript" src="js/painlessfs.js"></script>
     <script type="text/javascript">
+        $$(document).on('click','a,button',function(){
+            nativeclick.trigger();
+        });
         document.addEventListener("deviceready",function(){
             if (cordova.platformId == 'android') {
-                StatusBar.backgroundColorByHexString("#2196f3");
+                StatusBar.backgroundColorByHexString("#d23125");
             }
             document.addEventListener("backbutton", onBackKeyDown, false);
         },false);
 
-        $$('a,button').on('click',function(){
-            nativeclick.trigger();
-        });
 
         var lastTimeBackPress=0;
         var durationToExit=2000;
