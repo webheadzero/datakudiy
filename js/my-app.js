@@ -85,7 +85,7 @@ myApp.onPageInit('search', function (page) {
     });
     function search(url,keyword,offset){
         $$('#search').html('<span class="preloader page-preloader"></span>');
-        $$('.search-info').html('<div class="card bg-blue color-white" style="margin:-8px -8px 8px;padding:8px"><div class="card-content"><div class="card-content-inner">Menampilkan Data Dengan Kata Kunci : <strong>'+keyword+'</strong></div></div></div>');
+        $$('.search-info').html('<div class="card bg-red color-white" style="margin:-8px -8px 8px;padding:8px"><div class="card-content"><div class="card-content-inner">Menampilkan Data Dengan Kata Kunci : <strong>'+keyword+'</strong></div></div></div>');
         $$.ajax({
             url: url+'/'+offset,
             type: "post",
