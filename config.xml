@@ -18,7 +18,7 @@
     <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0"/>
     <plugin name="cordova-plugin-file" source="npm" spec="~4.1.1"/>
     <plugin name="cordova-plugin-file-transfer" source="npm" spec="~1.5.0"/>
-    <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1"/>
+    <plugin name="cordova-plugin-splashscreen" source="git" spec="https://github.com/apache/cordova-plugin-splashscreen.git"/>
     <plugin name="cordova-plugin-openfilenative" source="git" spec="https://github.com/antonioJASR/FileOpener.git"/>
     <allow-navigation href="*" />
     <allow-intent href="http://*/*" />

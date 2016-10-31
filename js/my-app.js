@@ -1,7 +1,7 @@
 // Initialize your app
 var myApp = new Framework7({
     material : true,
-    hideNavbarOnPageScroll : true,
+    //hideNavbarOnPageScroll : true,
     swipePanel: 'left',
     cache:true,
     precompileTemplates: true
