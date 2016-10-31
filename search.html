@@ -13,45 +13,48 @@
     <div class="page-content">
         <div class="search-info"></div>
         <div id="search">
-            <span class="preloader page-preloader"></span>
+            
         </div>
+        <span class="preloader page-preloader"></span>
         <div class="search-paging"></div>
         <script id="search_template" type="text/template7">
             {{#each result}}
             <div class="card">
                 <!-- <div class="card-header color-white no-border card-header-pic" valign="bottom" style="background-image:url({{image_thumb}});">
                 </div> -->
-                <div class="card-header"><strong>{{nama_data}}</strong></div>
-                <div class="card-content">
+                <div class="card-header search-list-header">
+                    <strong>{{nama_data}}</strong>
+                </div>
+                <div class="card-content search-list-body">
                     <div class="card-content-inner">
                         <div class="row">
-                            <div class="col-40">Data Daerah :</div><div class="col-60"><strong>{{nama_input}}</strong></div>
+                            <div class="col-30">Data Daerah</div><div class="col-70"><strong>{{nama_input}}</strong></div>
                         </div>
                         <div class="row">
-                            <div class="col-40">Bidang Urusan :</div><div class="col-60"><strong>{{nama_kelompok}}</strong></div>
+                            <div class="col-30">Bidang Urusan</div><div class="col-70"><strong>{{nama_kelompok}}</strong></div>
                         </div>
                         <div class="row">
-                            <div class="col-40">Elemen :</div><div class="col-60"><strong>{{nama_jenis}}</strong></div>
+                            <div class="col-30">Elemen</div><div class="col-70"><strong>{{nama_jenis}}</strong></div>
                         </div>
                         <div class="row">
-                            <div class="col-40">Sumber :</div><div class="col-60"><strong>{{nama_sumber}}</strong></div>
+                            <div class="col-30">Sumber</div><div class="col-70"><strong>{{nama_sumber}}</strong></div>
                         </div>
                         <div style="border-bottom:1px solid #eee;margin:10px 0"></div>
                         <div style="background:#eee;padding:15px;">
                             <div class="row">
-                                <div class="col-40">2012</div><div class="col-60 text-right"><strong>{{2012}}</strong></div>
+                                <div class="col-30">2012</div><div class="col-70 text-right"><strong>{{2012}}</strong></div>
                             </div>
                             <div class="row">
-                                <div class="col-40">2013</div><div class="col-60 text-right"><strong>{{2013}}</strong></div>
+                                <div class="col-30">2013</div><div class="col-70 text-right"><strong>{{2013}}</strong></div>
                             </div>
                             <div class="row">
-                                <div class="col-40">2014</div><div class="col-60 text-right"><strong>{{2014}}</strong></div>
+                                <div class="col-30">2014</div><div class="col-70 text-right"><strong>{{2014}}</strong></div>
                             </div>
                             <div class="row">
-                                <div class="col-40">2015</div><div class="col-60 text-right"><strong>{{2015}}</strong></div>
+                                <div class="col-30">2015</div><div class="col-70 text-right"><strong>{{2015}}</strong></div>
                             </div>
                             <div class="row">
-                                <div class="col-40">2016</div><div class="col-60 text-right"><strong>{{2016}}</strong></div>
+                                <div class="col-30">2016</div><div class="col-70 text-right"><strong>{{2016}}</strong></div>
                             </div>
                         </div>
                     </div>

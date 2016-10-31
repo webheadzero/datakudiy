@@ -1,7 +1,7 @@
 // Initialize your app
 var myApp = new Framework7({
     material : true,
-    //hideNavbarOnPageScroll : true,
+    hideNavbarOnPageScroll : true,
     swipePanel: 'left',
     cache:true,
     precompileTemplates: true
@@ -16,10 +16,11 @@ var mySwiper = myApp.swiper('.swiper-container', {
 var $$ = Dom7;
 
 $$(document).on('click', '.btn-download-file', function (e) {
-    var url = this.getAttribute('data-file');
-    console.log(url);
+    var file = this.getAttribute('data-file');
+    window.openFileNative.open(file);
 });
-var base_url = 'http://produksi.jmc.co.id/2016/dataku_diy';
+
+var base_url = 'http://bappeda.jogjaprov.go.id/dataku/2016';
 
 // Add view
 var mainView = myApp.addView('.view-main', {
@@ -84,7 +85,9 @@ myApp.onPageInit('search', function (page) {
         search(url,keyword,offset);
     });
     function search(url,keyword,offset){
-        $$('#search').html('<span class="preloader page-preloader"></span>');
+        $$('.search-paging').hide();
+        $$('#search').html('');
+        $$('.preloader').show();
         $$('.search-info').html('<div class="card bg-red color-white" style="margin:-8px -8px 8px;padding:8px"><div class="card-content"><div class="card-content-inner">Menampilkan Data Dengan Kata Kunci : <strong>'+keyword+'</strong></div></div></div>');
         $$.ajax({
             url: url+'/'+offset,
@@ -103,8 +106,12 @@ myApp.onPageInit('search', function (page) {
                 var total = context.total_rows;
                 
                 $$('#search').html(html);
-
-                if(total > 10){
+                $$('.search-paging').show();
+                $$('.preloader').hide();
+                if(total == 0){
+                   $$('#search').html('<div class="card"><div class="card-content"><div class="card-content-inner">Data Tidak Ditemukan</div></div></div>');
+                }
+                else if(total > 10){
                     $$('.search-paging').html('<div class="button button-fill button-raised color-white" style="margin:8px;color:#aaa;"><a href="#" class="page-prev" data-keyword="'+keyword+'" data-url="'+url+'" data-offset="'+offset+'"><i class="ion-ios-arrow-left"></i> Sebelumnya</a> <a class="page-next" href="#" data-keyword="'+keyword+'" data-url="'+url+'" data-offset="'+offset+'">Berikutnya <i class="ion-ios-arrow-right"></i></a></div>');
                     $$('.search-paging .page-next').show();
 

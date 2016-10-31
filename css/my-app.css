@@ -179,6 +179,13 @@
 .text-right{
 	text-align: right;
 }
+.search-paging{
+	display: none;
+}
+.search-paging .button{
+	height: 50px;
+	line-height: 50px;
+}
 .search-paging a{
 	display: block;
 	width: 50%;
@@ -187,4 +194,6 @@
 }
 .search-paging a.page-next{
 	float: right;
+}
+.search-list-body{
 }
