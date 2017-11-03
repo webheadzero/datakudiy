@@ -1,223 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>Dataku DIY</title>
-    <!-- Path to Framework7 Library CSS-->
-    <link rel="stylesheet" href="css/framework7.material.min.css">
-    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    <!-- Path to your custom app styles-->
-    <link rel="stylesheet" href="css/my-app.css">
-  </head>
-  <body class="theme-red">
-    <!-- First, we need to add Panel's overlay that will overlays app while panel is opened -->
-    <div class="panel-overlay"></div>
- 
-    <!-- Left panel -->
-    <div class="panel panel-left panel-cover">
-        <div class="content-block sidebar-header bg-blue color-white">
-        
-        </div>
-        <div class="list-block sidebar-nav">
-          <ul>
-            <li>
-              <a href="publikasi.html" class="item-link close-panel">
-                <div class="item-content">
-                  <div class="item-media"><i class="ion-briefcase"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Publikasi &amp; Hasil Kajian</div>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="indikator_kinerja_utama.html" class="item-link close-panel">
-                <div class="item-content">
-                  <div class="item-media"><i class="ion-compass"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Indikator Kinerja Utama</div>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="kinerja_pemda.html" class="item-link close-panel">
-                <div class="item-content">
-                  <div class="item-media"><i class="ion-clipboard"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Kinerja Pemda DIY</div>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="peta.html" class="item-link close-panel">
-                <div class="item-content">
-                  <div class="item-media"><i class="ion-android-map"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Peta</div>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="informasi_statistik.html" class="item-link close-panel">
-                <div class="item-content">
-                  <div class="item-media"><i class="ion-android-stopwatch"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Informasi Statistik &amp; Program Strategis</div>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="video.html" class="item-link close-panel">
-                <div class="item-content">
-                  <div class="item-media"><i class="ion-social-youtube"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Video</div>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="about.html" class="item-link close-panel">
-                <div class="item-content">
-                  <div class="item-media"><i class="ion-android-contact"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Tentang Kami</div>
-                  </div>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-    </div>
-    <!-- Views -->
-    <div class="views">
-      <!-- Your main view, should have "view-main" class -->
-      <!-- Main Page View -->
-      
-      <div class="view view-main navbar-fixed">
-          <div class="pages">
-              <div class="page">                  
-                  <div class="navbar">
-                    <div class="navbar-inner">                
-                      <div class="left">
-                          <a href="#" class="link open-panel">
-                              <i class="icon icon-bars"></i>
-                          </a>
-                      </div>
-                      <div class="center">Dataku DIY</div>
-                    </div>
-                  </div>    
-                  <div class="page-content page-home" data-page="home">
-                    <div class="page-home-hero">
-                      <form class="data-search ajax-submit" action="search.html" method="GET">
-                        <input class="search-value" type="text" name="search-value" placeholder="Search..">
-                        <button type="submit"><i class="ion-android-search"></i></button>
-                      </form>
-                      <div class="caption">
-                        <h2>Aplikasi Dataku</h2>
-                        <h5>Bappeda Daerah Istimewa Yogyakarta</h5>
-                      </div>
-                    </div>
-                    <div class="content-block">
-                        <div class="row">
-                            <div class="col-25">
-                                <a href="publikasi.html" class="icon-menu">
-                                    <i class="ion-briefcase bg-green color-white"></i>
-                                    Publikasi
-                                </a>
-                            </div>
-                            <div class="col-25">
-                                <a href="indikator_kinerja_utama.html" class="icon-menu">
-                                    <i class="ion-compass bg-red color-white"></i>
-                                    Indikator
-                                </a>
-                            </div>
-                            <div class="col-25">
-                                <a href="kinerja_pemda.html" class="icon-menu">
-                                    <i class="ion-clipboard bg-pink color-white"></i>
-                                    Kinerja
-                                </a>
-                            </div>
-                            <div class="col-25">
-                                <a href="peta.html" class="icon-menu">
-                                    <i class="ion-android-map bg-indigo color-white"></i>
-                                    Peta
-                                </a>
-                            </div>
-                            <div class="col-25">
-                                <a href="informasi_statistik.html" class="icon-menu">
-                                    <i class="ion-android-stopwatch bg-cyan color-white"></i>
-                                    Statistik
-                                </a>
-                            </div>
-                            <div class="col-25">
-                                <a href="video.html" class="icon-menu">
-                                    <i class="ion-social-youtube bg-teal color-white"></i>
-                                    Video
-                                </a>
-                            </div>
-                            <div class="col-25"></div>
-                            <div class="col-25"></div>
-                        </div>
-                    </div>
-                  </div>
-              </div>
-          </div>
-      </div>  
-    </div>
-    <!-- Path to Framework7 Library JS-->
-    <script type="text/javascript" src="js/framework7.min.js"></script>
-    <!-- Path to your app js-->
-    <script type="text/javascript" src="js/my-app.js"></script>
-    
-    <!-- Cordova Required -->
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/Toast.js"></script>
-    <script type="text/javascript" src="js/painlessfs.js"></script>
-    <script type="text/javascript">
-        $$(document).on('click','a,button',function(){
-            nativeclick.trigger();
-        });
-        document.addEventListener("deviceready",function(){
-            if (cordova.platformId == 'android') {
-                StatusBar.backgroundColorByHexString("#d23125");
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <title>DATAKU DIY</title>
+    </head>
+    <body>
+        <iframe id="myframe" src="http://bappeda.jogjaprov.go.id/dataku/new" frameborder="0"></iframe>
+        <style type="text/css">
+            #myframe{
+                position: fixed;
+                top:0;
+                left:0;
+                bottom:0;
+                right:0;
+                width: 100vw;
+                height: 100vh;
+                border:none;
             }
-            document.addEventListener("backbutton", onBackKeyDown, false);
-        },false);
-
-
-        var lastTimeBackPress=0;
-        var durationToExit=2000;
-
-        function onBackKeyDown(e){
-            e.preventDefault();
-            e.stopPropagation();
-            if(mainView.activePage.name!= null){              
-              mainView.router.back();
-            } else {
-              if(new Date().getTime() - lastTimeBackPress < durationToExit){
-                  navigator.app.exitApp();
-              } else{
-                  window.plugins.toast.showWithOptions(
-                      {
-                        message: "Tekan sekali lagi untuk keluar.",
-                        duration: "short",
-                        position: "bottom",
-                        addPixelsY: -40
-                      }
-                    );
-                  lastTimeBackPress=new Date().getTime();
-              }
-            }
-        }
-    </script>
-  </body>
+        </style>
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
 </html>
